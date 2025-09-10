@@ -22,8 +22,8 @@ const LocalSection = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%", 
-          toggleActions: "play none none reset", 
+          start: "top 80%",
+          toggleActions: "play none none reset",
         },
       });
 
@@ -40,7 +40,7 @@ const LocalSection = () => {
       });
     }, sectionRef);
 
-    return () => ctx.revert(); 
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -50,7 +50,7 @@ const LocalSection = () => {
     >
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
+          {/* Text content */}
           <div ref={textRef} className="space-y-6">
             <h2 className="text-4xl lg:text-5xl font-space font-normal leading-tight">
               We are a local business focusing on historic preservation, using
@@ -59,14 +59,14 @@ const LocalSection = () => {
 
             <p className="text-white text-lg font-space leading-relaxed">
               Write a paragraph that talks about your company here. You can talk
-              about your company's background, history, mission, vision, or
-              philosophy. Anything that will introduce your brand's persona to
+              about your company&apos;s background, history, mission, vision, or
+              philosophy. Anything that will introduce your brand&apos;s persona to
               your clients. This will help build a connection between you and
               them, that hopefully leads into a working relationship.
             </p>
           </div>
 
-          
+          {/* Image */}
           <div ref={imageRef} className="relative">
             <Image
               src="/local/local.png"
