@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
-import { service } from "@/app/data/service";
+import { serviceData } from "@/app/data/serviceData";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -17,7 +17,6 @@ const ServiceSection = () => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-     
       gsap.from(titleRef.current, {
         x: -80,
         opacity: 0,
@@ -30,7 +29,6 @@ const ServiceSection = () => {
         },
       });
 
-      
       gsap.from(textRef.current, {
         x: 80,
         opacity: 0,
@@ -43,7 +41,6 @@ const ServiceSection = () => {
         },
       });
 
-      
       gsap.from(cardsRef.current, {
         y: 50,
         opacity: 0,
@@ -62,28 +59,28 @@ const ServiceSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-gray-50 overflow-x-hidden py-16 px-6">
+    <section
+      ref={sectionRef}
+      className="bg-gray-50 overflow-x-hidden py-16 px-6"
+    >
       <div className="container mx-auto">
         
         <div className="grid lg:grid-cols-2 gap-12 lg:mb-36 mb-20">
           <div ref={titleRef}>
             <h2 className="text-5xl font-medium font-space text-black leading-tight">
-              Services
+              {serviceData.title}
             </h2>
           </div>
           <div ref={textRef} className="flex items-center">
             <p className="text-lg text-black font-space leading-relaxed">
-              Write a paragraph that talks about your construction company here.
-              Convince your prospective clients to choose you and your team for
-              their construction needs by talking about your unique services, as
-              well as your commitment to getting the job done.
+              {serviceData.description}
             </p>
           </div>
         </div>
 
-       
+        
         <div className="grid md:grid-cols-3 gap-8">
-          {service.map((item, index) => (
+          {serviceData.services.map((item, index) => (
             <div
               key={index}
               ref={(el) => {

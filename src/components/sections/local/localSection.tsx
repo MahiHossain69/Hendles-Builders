@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { localData } from "@/app/data/localData"; // 👈 import data
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,29 +51,25 @@ const LocalSection = () => {
     >
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text content */}
+          
+         
           <div ref={textRef} className="space-y-6">
             <h2 className="text-4xl lg:text-5xl font-space font-normal leading-tight">
-              We are a local business focusing on historic preservation, using
-              traditional materials and techniques.
+              {localData.heading}
             </h2>
 
             <p className="text-white text-lg font-space leading-relaxed">
-              Write a paragraph that talks about your company here. You can talk
-              about your company&apos;s background, history, mission, vision, or
-              philosophy. Anything that will introduce your brand&apos;s persona to
-              your clients. This will help build a connection between you and
-              them, that hopefully leads into a working relationship.
+              {localData.description}
             </p>
           </div>
 
-          {/* Image */}
+         
           <div ref={imageRef} className="relative">
             <Image
-              src="/local/local.png"
-              alt="Historic buildings with traditional architecture"
-              width={600}
-              height={400}
+              src={localData.image.src}
+              alt={localData.image.alt}
+              width={localData.image.width}
+              height={localData.image.height}
               className="rounded-lg object-cover w-full h-auto"
               priority
             />

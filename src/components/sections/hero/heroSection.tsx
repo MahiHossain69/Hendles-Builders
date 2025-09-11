@@ -41,7 +41,7 @@ const HeroSection = () => {
         .from(buttonRef.current, { opacity: 1, scale: 0.9, duration: 0.6 }, "-=0.3");
     }, sectionRef);
 
-    return () => ctx.revert(); // cleanup
+    return () => ctx.revert();
   }, []);
 
   return (

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { testimonials } from "@/app/data/clientData"; 
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,26 +11,10 @@ const ClientSection = () => {
   const titleRef = useRef(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
-  const testimonials = [
-    {
-      text: "Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable.",
-      client: "Bass Co.",
-    },
-    {
-      text: "Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable.",
-      client: "Mitcheur Law",
-    },
-    {
-      text: "Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable. Add them here!",
-      client: "Studio Rallia",
-    },
-  ];
-
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      
       gsap.from(titleRef.current, {
         x: -80,
         opacity: 0,
@@ -42,7 +27,6 @@ const ClientSection = () => {
         },
       });
 
-     
       gsap.from(cardsRef.current, {
         y: 50,
         opacity: 0,
@@ -63,7 +47,6 @@ const ClientSection = () => {
   return (
     <section ref={sectionRef} className="bg-gray-100 py-16 px-4">
       <div className="container mx-auto">
-       
         <h2
           ref={titleRef}
           className="text-4xl md:text-5xl font-medium font-space text-black mb-12 lg:mb-40"
@@ -71,7 +54,6 @@ const ClientSection = () => {
           From Our Satisfied Clients
         </h2>
 
-       
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
@@ -84,7 +66,9 @@ const ClientSection = () => {
               <p className="text-gray-600 font-pt text-base leading-relaxed mb-6">
                 {testimonial.text}
               </p>
-              <p className="text-black font-mono font-medium">- {testimonial.client}</p>
+              <p className="text-black font-mono font-medium">
+                - {testimonial.client}
+              </p>
             </div>
           ))}
         </div>
